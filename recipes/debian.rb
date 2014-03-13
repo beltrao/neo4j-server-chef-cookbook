@@ -21,12 +21,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-node.default[:neo4j][:server][:data_dir]  = "data/graph.db"
-node.default[:neo4j][:server][:conf_dir]  = "/etc/neo4j"
+node.default[:neo4j][:server][:group]     = 'adm'
+node.default[:neo4j][:server][:data_dir]  = 'data/graph.db'
+node.default[:neo4j][:server][:conf_dir]  = '/etc/neo4j'
 node.default[:neo4j][:server][:lock_path] = "../data/#{node[:neo4j][:server][:name]}.lock"
 node.default[:neo4j][:server][:pid_path]  = "../data/#{node[:neo4j][:server][:name]}.pid"
+node.default[:neo4j][:server][:installation_dir] = '/usr/share/neo4j'
 
 include_recipe "neo4j-server::apt_repository"
+include_recipe "java"
 
 package "neo4j"
 

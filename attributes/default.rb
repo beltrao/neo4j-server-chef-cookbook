@@ -8,6 +8,7 @@ default[:neo4j][:server][:limits][:memlock]  = 'unlimited'
 default[:neo4j][:server][:limits][:nofile]   = 48000
 
 default[:neo4j][:server][:user]              = 'neo4j'
+default[:neo4j][:server][:group]             = 'neo4j'
 
 default[:neo4j][:server][:name]              = 'neo4j-server'
 
@@ -34,6 +35,8 @@ default[:neo4j][:server][:https][:key_location]   = 'conf/ssl/snakeoil.key'
 default[:neo4j][:server][:plugins][:spatial][:enabled]  = true
 default[:neo4j][:server][:plugins][:spatial][:version]  = '0.9-SNAPSHOT'
 default[:neo4j][:server][:plugins][:spatial][:url]      = "https://github.com/downloads/goodwink/neo4j-server-chef-cookbook/neo4j-spatial-#{node[:neo4j][:server][:plugins][:spatial][:version]}-server-plugin.zip"
+
+default[:neo4j][:server][:plugins][:auth][:version] = '1.9-SNAPSHOT-1.0-SNAPSHOT'
 
 default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
 default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
