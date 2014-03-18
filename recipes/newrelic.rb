@@ -1,4 +1,4 @@
-wrapper_file = File.join(node.neo4j.server.conf_dir, 'neo4j-wrapper.properties')
+wrapper_file = File.join(node.neo4j.server.conf_dir, 'neo4j-wrapper.conf')
 newrelic_dir = File.join(node.neo4j.server.installation_dir, 'newrelic')
 
 agent_jar_name    = "newrelic-agent-#{node.neo4j.newrelic.agent_version}.jar"
