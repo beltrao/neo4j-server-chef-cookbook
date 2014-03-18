@@ -8,7 +8,7 @@ agent_config_path = File.join(node.neo4j.server.conf_dir, 'newrelic.yml')
 directory newrelic_dir do
   owner  node.neo4j.server.user
   group  node.neo4j.server.group
-  mode   00644
+  mode   00755
 end
 
 remote_file agent_jar_path do
