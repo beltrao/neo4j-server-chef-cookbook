@@ -5,29 +5,15 @@ bag = search('neo4j-server').first
 neo4j_admin = bag.to_hash['admin']
 neo4j_users = bag.to_hash['users']
 
-
 jar_name    = "authentication-extension-#{node.neo4j.server.plugins.auth.version}.jar"
 jar_url     = "http://dist.neo4j.org/authentication-extension/#{jar_name}"
 plugins_dir = File.join(node.neo4j.server.installation_dir, 'plugins')
 properties_file = File.join(node.neo4j.server.conf_dir, 'neo4j-server.properties')
 
-td       = Dir.tmpdir
-tmp_auth = File.join(td, jar_name)
-
-remote_file(tmp_auth) do
+remote_file "#{plugins_dir}/authentication-extension.jar" do
+  owner  node.neo4j.server.user
+  group  node.neo4j.server.group
   source jar_url
-end
-
-bash "move #{tmp_auth} to #{plugins_dir}/authentication-extension.jar" do
-  user "root"
-  cwd "/tmp"
-
-  code <<-EOS
-    mv #{tmp_auth} #{plugins_dir}/authentication-extension.jar
-    chown -R #{node.neo4j.server.user}:#{node.neo4j.server.group} #{plugins_dir}
-  EOS
-
-  creates "#{plugins_dir}/#{jar_name}"
 end
 
 config_data_lines = [
