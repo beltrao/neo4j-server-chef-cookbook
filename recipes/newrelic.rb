@@ -1,9 +1,8 @@
 wrapper_file = File.join(node.neo4j.server.conf_dir, 'neo4j-wrapper.conf')
 newrelic_dir = File.join(node.neo4j.server.installation_dir, 'newrelic')
 
-agent_jar_name    = "newrelic-agent-#{node.neo4j.newrelic.agent_version}.jar"
-agent_jar_url     = "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/#{node.neo4j.newrelic.agent_version}/#{agent_jar_name}"
-agent_jar_path    = File.join(newrelic_dir, agent_jar_name)
+agent_jar_url     = "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/#{node.neo4j.newrelic.agent_version}/newrelic-agent-#{node.neo4j.newrelic.agent_version}.jar"
+agent_jar_path    = File.join(newrelic_dir, 'newrelic.jar')
 agent_config_path = File.join(node.neo4j.server.conf_dir, 'newrelic.yml')
 
 directory newrelic_dir do
