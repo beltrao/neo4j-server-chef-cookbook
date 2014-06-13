@@ -1,4 +1,4 @@
-default[:neo4j][:server][:version]           = '1.9.4'
+default[:neo4j][:server][:version]           = '2.1.2'
 
 default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-community-#{node[:neo4j][:server][:version]}-unix.tar.gz"
 
@@ -36,7 +36,7 @@ default[:neo4j][:server][:plugins][:spatial][:enabled]  = true
 default[:neo4j][:server][:plugins][:spatial][:version]  = '0.9-SNAPSHOT'
 default[:neo4j][:server][:plugins][:spatial][:url]      = "https://github.com/downloads/goodwink/neo4j-server-chef-cookbook/neo4j-spatial-#{node[:neo4j][:server][:plugins][:spatial][:version]}-server-plugin.zip"
 
-default[:neo4j][:server][:plugins][:auth][:version] = '1.9-SNAPSHOT-1.0-SNAPSHOT'
+default[:neo4j][:server][:plugins][:auth][:version] = '2.0.2-1.0-SNAPSHOT'
 
 default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
 default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
